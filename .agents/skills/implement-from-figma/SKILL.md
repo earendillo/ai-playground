@@ -44,6 +44,21 @@ Keep the expected data limited to measurable properties that can be compared det
 
 ### Figma request budget
 
+The local Figma snapshot must be stored in `artifacts/figma/` and remain available for the entire implementation and verification workflow.
+
+The snapshot should contain only the Figma information required for implementation and deterministic verification, including:
+
+- file key and target node ID,
+- relevant target and child node structure,
+- geometry and dimensions,
+- spacing, padding, and gaps,
+- typography,
+- colors,
+- borders and radii,
+- relevant assets and their Figma node mapping.
+
+Do not store the complete raw MCP response when the required information can be represented in a smaller structured form.
+
 Minimize Figma MCP requests.
 
 For each implementation task:

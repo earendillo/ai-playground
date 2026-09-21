@@ -1,11 +1,11 @@
 {
   "position": {
-    "x": 379.203125,
-    "y": 343
+    "x": 77.75,
+    "y": 243
   },
-  "text": "",
-  "width": 10,
-  "height": 10,
+  "text": "Lorem ipsum dolor sit amet, his rebum salutatus id, purto vitae signi ferumque ea per. An quod erant sed. Viris aliquam impedit et est has veri deleniti sensibus id, summo paulo cetero no vel.",
+  "width": 697.75,
+  "height": 32,
   "padding": {
     "top": "0px",
     "right": "0px",
@@ -19,13 +19,13 @@
     "left": "0px"
   },
   "font": {
-    "family": "Poppins, \"Poppins Fallback\"",
-    "size": "16px",
+    "family": "Inter, \"Inter Fallback\"",
+    "size": "12px",
     "weight": "400",
-    "lineHeight": "24px",
+    "lineHeight": "16px",
     "letterSpacing": "normal"
   },
-  "color": "rgb(23, 23, 23)",
-  "backgroundColor": "rgb(254, 226, 226)",
-  "borderRadius": "9999px"
+  "color": "rgb(3, 7, 18)",
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "borderRadius": "0px"
 }
