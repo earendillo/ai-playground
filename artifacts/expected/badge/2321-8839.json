@@ -1,0 +1,31 @@
+{
+  "position": {
+    "x": 375.9375,
+    "y": 558
+  },
+  "text": "",
+  "width": 28,
+  "height": 28,
+  "padding": {
+    "top": "2px",
+    "right": "6px",
+    "bottom": "2px",
+    "left": "6px"
+  },
+  "margin": {
+    "top": "0px",
+    "right": "0px",
+    "bottom": "0px",
+    "left": "0px"
+  },
+  "font": {
+    "family": "Inter, \"Inter Fallback\"",
+    "size": "16px",
+    "weight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "normal"
+  },
+  "color": "#ffffff",
+  "backgroundColor": "#b91c1c",
+  "borderRadius": "9999px"
+}

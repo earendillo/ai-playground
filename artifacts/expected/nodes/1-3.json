@@ -1,0 +1,18 @@
+{
+  "position": { "x": 443.5, "y": 336.5 },
+  "text": "HomeSearchAnalyticsHistoryProfile",
+  "width": 393,
+  "height": 58,
+  "padding": { "top": "12px", "right": "12px", "bottom": "0px", "left": "12px" },
+  "margin": { "top": "0px", "right": "0px", "bottom": "0px", "left": "0px" },
+  "font": {
+    "family": "Poppins, \"Poppins Fallback\"",
+    "size": "16px",
+    "weight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "normal"
+  },
+  "color": "#171717",
+  "backgroundColor": "#ffffff",
+  "borderRadius": "0px"
+}

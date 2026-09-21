@@ -1,0 +1,31 @@
+{
+  "position": {
+    "x": 379.203125,
+    "y": 343
+  },
+  "text": "",
+  "width": 10,
+  "height": 10,
+  "padding": {
+    "top": "0px",
+    "right": "0px",
+    "bottom": "0px",
+    "left": "0px"
+  },
+  "margin": {
+    "top": "0px",
+    "right": "0px",
+    "bottom": "0px",
+    "left": "0px"
+  },
+  "font": {
+    "family": "Poppins, \"Poppins Fallback\"",
+    "size": "16px",
+    "weight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "normal"
+  },
+  "color": "#171717",
+  "backgroundColor": "#fee2e2",
+  "borderRadius": "9999px"
+}
