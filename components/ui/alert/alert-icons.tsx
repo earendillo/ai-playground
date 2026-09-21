@@ -53,13 +53,14 @@ const statusGlyph: Record<AlertStatus, keyof typeof glyphs> = {
 };
 
 /**
- * Glyph height equals the size's font size (14 / 16 / 18px); the width follows the
- * viewBox aspect, which is how Font Awesome renders its SVG icons.
+ * Glyph height is the size's font-size token, so a change to the type scale reaches the
+ * icons too; the width follows the viewBox aspect, which is how Font Awesome renders its
+ * SVG icons.
  */
 const glyphHeight: Record<AlertSize, string> = {
-  sm: 'h-[0.875rem]',
-  md: 'h-[1rem]',
-  lg: 'h-[1.125rem]',
+  sm: 'h-[var(--font-size-sm)]',
+  md: 'h-[var(--font-size-base)]',
+  lg: 'h-[var(--font-size-lg)]',
 };
 
 function Icon({ glyph, size }: { glyph: Glyph; size: AlertSize }) {
