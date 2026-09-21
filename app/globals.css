@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 /*
- * Plus UI color system, extracted from Figma file vR3AuW3jxvnMMMMLDQvYJ6.
- * Snapshot: artifacts/figma/color-system.json. Figma is the source of truth.
+ * Plus UI design system, extracted from Figma file vR3AuW3jxvnMMMMLDQvYJ6.
+ * Snapshots: artifacts/figma/color-system.json (colour) and
+ * artifacts/figma/typography-spacing-borders.json (typography, spacing, borders).
+ * Figma is the source of truth.
+ *
+ * Every system in this theme is layered the same way: a primitive layer holding the
+ * only literal values, an alias layer naming the steps the Figma token tables name,
+ * and - where Figma defines one - a semantic layer the components consume.
+ *
+ * Colour:
  *
  * The system has three layers and the aliasing between them is deliberate:
  *
@@ -509,6 +517,233 @@
   --color-border-danger: var(--color-danger-700); /* color/border/danger */
   --color-border-ring: var(--color-blue-300); /* color/border/ring */
   --color-border-disabled: var(--color-default-300); /* color/border/disabled */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 1 - global number scale (Figma "number/*")                 */
+  /* Shared by spacing, border radius and border width. The only      */
+  /* place a raw length is written for the three systems.             */
+  /* ---------------------------------------------------------------- */
+
+  --number-0:   0rem; /* number/0 = 0px */
+  --number-px:  1px; /* number/px = 1px */
+  --number-0-5: 0.125rem; /* number/0-5 = 2px */
+  --number-1:   0.25rem; /* number/1 = 4px */
+  --number-1-5: 0.375rem; /* number/1-5 = 6px */
+  --number-2:   0.5rem; /* number/2 = 8px */
+  --number-2-5: 0.625rem; /* number/2-5 = 10px */
+  --number-3:   0.75rem; /* number/3 = 12px */
+  --number-3-5: 0.875rem; /* number/3-5 = 14px */
+  --number-4:   1rem; /* number/4 = 16px */
+  --number-5:   1.25rem; /* number/5 = 20px */
+  --number-6:   1.5rem; /* number/6 = 24px */
+  --number-7:   1.75rem; /* number/7 = 28px */
+  --number-8:   2rem; /* number/8 = 32px */
+  --number-9:   2.25rem; /* number/9 = 36px */
+  --number-10:  2.5rem; /* number/10 = 40px */
+  --number-11:  2.75rem; /* number/11 = 44px */
+  --number-12:  3rem; /* number/12 = 48px */
+  --number-14:  3.5rem; /* number/14 = 56px */
+  --number-16:  4rem; /* number/16 = 64px */
+  --number-20:  5rem; /* number/20 = 80px */
+  --number-24:  6rem; /* number/24 = 96px */
+  --number-28:  7rem; /* number/28 = 112px */
+  --number-32:  8rem; /* number/32 = 128px */
+  --number-36:  9rem; /* number/36 = 144px */
+  --number-40:  10rem; /* number/40 = 160px */
+  --number-44:  11rem; /* number/44 = 176px */
+  --number-48:  12rem; /* number/48 = 192px */
+  --number-52:  13rem; /* number/52 = 208px */
+  --number-56:  14rem; /* number/56 = 224px */
+  --number-60:  15rem; /* number/60 = 240px */
+  --number-64:  16rem; /* number/64 = 256px */
+  --number-72:  18rem; /* number/72 = 288px */
+  --number-80:  20rem; /* number/80 = 320px */
+  --number-96:  24rem; /* number/96 = 384px */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 1 - typography primitives                                  */
+  /* (Figma "Typography", 4909:62199 / token table 4909:62513)        */
+  /* ---------------------------------------------------------------- */
+
+  --font-size-xs:   0.75rem; /* font-size/xs = 12px */
+  --font-size-sm:   0.875rem; /* font-size/sm = 14px */
+  --font-size-base: 1rem; /* font-size/md = 16px */
+  --font-size-lg:   1.125rem; /* font-size/lg = 18px */
+  --font-size-xl:   1.25rem; /* font-size/xl = 20px */
+  --font-size-2xl:  1.5rem; /* font-size/2xl = 24px */
+  --font-size-3xl:  1.875rem; /* font-size/3xl = 30px */
+  --font-size-4xl:  2.25rem; /* font-size/4xl = 36px */
+  --font-size-5xl:  3rem; /* font-size/5xl = 48px */
+  --font-size-6xl:  3.75rem; /* font-size/6xl = 60px */
+  --font-size-7xl:  4.5rem; /* font-size/7xl = 72px */
+  --font-size-8xl:  6rem; /* font-size/8xl = 96px */
+  --font-size-9xl:  8rem; /* font-size/9xl = 128px */
+
+  --line-height-xs:   1rem; /* line-height/xs = 16px */
+  --line-height-sm:   1.25rem; /* line-height/sm = 20px */
+  --line-height-base: 1.5rem; /* line-height/md = 24px */
+  --line-height-lg:   1.75rem; /* line-height/lg = 28px */
+  --line-height-xl:   1.75rem; /* line-height/xl = 28px */
+  --line-height-2xl:  2rem; /* line-height/2xl = 32px */
+  --line-height-3xl:  2.25rem; /* line-height/3xl = 36px */
+  --line-height-4xl:  2.5rem; /* line-height/4xl = 40px */
+  --line-height-5xl:  3rem; /* line-height/5xl = 48px */
+  --line-height-6xl:  3.75rem; /* line-height/6xl = 60px */
+  --line-height-7xl:  4.5rem; /* line-height/7xl = 72px */
+  --line-height-8xl:  6rem; /* line-height/8xl = 96px */
+  --line-height-9xl:  8rem; /* line-height/9xl = 128px */
+
+  --paragraph-spacing-xs:   var(--font-size-xs); /* Paragraph Spacing column = 12px */
+  --paragraph-spacing-sm:   var(--font-size-sm); /* Paragraph Spacing column = 14px */
+  --paragraph-spacing-base: var(--font-size-base); /* Paragraph Spacing column = 16px */
+  --paragraph-spacing-lg:   var(--font-size-lg); /* Paragraph Spacing column = 18px */
+  --paragraph-spacing-xl:   var(--font-size-xl); /* Paragraph Spacing column = 20px */
+  --paragraph-spacing-2xl:  var(--font-size-2xl); /* Paragraph Spacing column = 24px */
+  --paragraph-spacing-3xl:  var(--font-size-3xl); /* Paragraph Spacing column = 30px */
+  --paragraph-spacing-4xl:  var(--font-size-4xl); /* Paragraph Spacing column = 36px */
+  --paragraph-spacing-5xl:  var(--font-size-5xl); /* Paragraph Spacing column = 48px */
+  --paragraph-spacing-6xl:  var(--font-size-6xl); /* Paragraph Spacing column = 60px */
+  --paragraph-spacing-7xl:  var(--font-size-7xl); /* Paragraph Spacing column = 72px */
+  --paragraph-spacing-8xl:  var(--font-size-8xl); /* Paragraph Spacing column = 96px */
+  --paragraph-spacing-9xl:  var(--font-size-9xl); /* Paragraph Spacing column = 128px */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 2 - typography style tokens                                */
+  /* The Tailwind namespaces: --font-*, --font-weight-*, --text-*,    */
+  /* --tracking-*. text-<size> carries the paired line height and     */
+  /* letter spacing, so a size and its leading cannot drift apart.    */
+  /* ---------------------------------------------------------------- */
+
+  --font-default: var(--font-inter); /* typography/font-family/default = Inter, loaded by next/font */
+
+  --font-weight-regular:   400; /* font-weight/regular */
+  --font-weight-medium:    500; /* font-weight/medium */
+  --font-weight-semi-bold: 600; /* font-weight/semi-bold */
+  --font-weight-bold:      700; /* font-weight/bold */
+
+  --tracking-default: 0em; /* every Figma text style declares letterSpacing: 0 */
+
+  --text-xs:                   var(--font-size-xs);
+  --text-xs--line-height:      var(--line-height-xs);
+  --text-xs--letter-spacing:   var(--tracking-default);
+  --text-sm:                   var(--font-size-sm);
+  --text-sm--line-height:      var(--line-height-sm);
+  --text-sm--letter-spacing:   var(--tracking-default);
+  --text-base:                 var(--font-size-base);
+  --text-base--line-height:    var(--line-height-base);
+  --text-base--letter-spacing: var(--tracking-default);
+  --text-lg:                   var(--font-size-lg);
+  --text-lg--line-height:      var(--line-height-lg);
+  --text-lg--letter-spacing:   var(--tracking-default);
+  --text-xl:                   var(--font-size-xl);
+  --text-xl--line-height:      var(--line-height-xl);
+  --text-xl--letter-spacing:   var(--tracking-default);
+  --text-2xl:                  var(--font-size-2xl);
+  --text-2xl--line-height:     var(--line-height-2xl);
+  --text-2xl--letter-spacing:  var(--tracking-default);
+  --text-3xl:                  var(--font-size-3xl);
+  --text-3xl--line-height:     var(--line-height-3xl);
+  --text-3xl--letter-spacing:  var(--tracking-default);
+  --text-4xl:                  var(--font-size-4xl);
+  --text-4xl--line-height:     var(--line-height-4xl);
+  --text-4xl--letter-spacing:  var(--tracking-default);
+  --text-5xl:                  var(--font-size-5xl);
+  --text-5xl--line-height:     var(--line-height-5xl);
+  --text-5xl--letter-spacing:  var(--tracking-default);
+  --text-6xl:                  var(--font-size-6xl);
+  --text-6xl--line-height:     var(--line-height-6xl);
+  --text-6xl--letter-spacing:  var(--tracking-default);
+  --text-7xl:                  var(--font-size-7xl);
+  --text-7xl--line-height:     var(--line-height-7xl);
+  --text-7xl--letter-spacing:  var(--tracking-default);
+  --text-8xl:                  var(--font-size-8xl);
+  --text-8xl--line-height:     var(--line-height-8xl);
+  --text-8xl--letter-spacing:  var(--tracking-default);
+  --text-9xl:                  var(--font-size-9xl);
+  --text-9xl--line-height:     var(--line-height-9xl);
+  --text-9xl--letter-spacing:  var(--tracking-default);
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 2 - spacing alias tokens                                   */
+  /* (Figma "Spacing", 4907:9053 / token table 4907:9279)             */
+  /* Each Figma `spacing-*` alias resolves to a `number/*` step.      */
+  /* `--spacing` keeps Tailwind's dynamic scale on the same base, so  */
+  /* a step the table does not name still lands on the Figma grid.    */
+  /* ---------------------------------------------------------------- */
+
+  --spacing: var(--number-1); /* dynamic base: 0.25rem = 4px */
+
+  --spacing-0:    var(--number-0); /* spacing-0 = 0px */
+  --spacing-px:   var(--number-px); /* spacing-px = 1px */
+  --spacing-0\.5: var(--number-0-5); /* spacing-0-5 = 2px */
+  --spacing-1:    var(--number-1); /* spacing-1 = 4px */
+  --spacing-1\.5: var(--number-1-5); /* spacing-1-5 = 6px */
+  --spacing-2:    var(--number-2); /* spacing-2 = 8px */
+  --spacing-2\.5: var(--number-2-5); /* spacing-2-5 = 10px */
+  --spacing-3:    var(--number-3); /* spacing-3 = 12px */
+  --spacing-3\.5: var(--number-3-5); /* spacing-3-5 = 14px */
+  --spacing-4:    var(--number-4); /* spacing-4 = 16px */
+  --spacing-5:    var(--number-5); /* spacing-5 = 20px */
+  --spacing-6:    var(--number-6); /* spacing-6 = 24px */
+  --spacing-7:    var(--number-7); /* spacing-7 = 28px */
+  --spacing-8:    var(--number-8); /* spacing-8 = 32px */
+  --spacing-9:    var(--number-9); /* spacing-9 = 36px */
+  --spacing-10:   var(--number-10); /* spacing-10 = 40px */
+  --spacing-11:   var(--number-11); /* spacing-11 = 44px */
+  --spacing-12:   var(--number-12); /* spacing-12 = 48px */
+  --spacing-14:   var(--number-14); /* spacing-14 = 56px */
+  --spacing-16:   var(--number-16); /* spacing-16 = 64px */
+  --spacing-20:   var(--number-20); /* spacing-20 = 80px */
+  --spacing-24:   var(--number-24); /* spacing-24 = 96px */
+  --spacing-28:   var(--number-28); /* spacing-28 = 112px */
+  --spacing-32:   var(--number-32); /* spacing-32 = 128px */
+  --spacing-36:   var(--number-36); /* spacing-36 = 144px */
+  --spacing-40:   var(--number-40); /* spacing-40 = 160px */
+  --spacing-44:   var(--number-44); /* spacing-44 = 176px */
+  --spacing-48:   var(--number-48); /* spacing-48 = 192px */
+  --spacing-52:   var(--number-52); /* spacing-52 = 208px */
+  --spacing-56:   var(--number-56); /* spacing-56 = 224px */
+  --spacing-60:   var(--number-60); /* spacing-60 = 240px */
+  --spacing-64:   var(--number-64); /* spacing-64 = 256px */
+  --spacing-72:   var(--number-72); /* spacing-72 = 288px */
+  --spacing-80:   var(--number-80); /* spacing-80 = 320px */
+  --spacing-96:   var(--number-96); /* spacing-96 = 384px */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 2 - border radius alias tokens                             */
+  /* (Figma "Border Radius", 4908:8593 / token table 4908:8597)       */
+  /* ---------------------------------------------------------------- */
+
+  --radius-none: var(--number-0); /* rounded-none = 0px */
+  --radius-sm:   var(--number-0-5); /* rounded-sm = 2px */
+  --radius-base: var(--number-1); /* rounded = 4px */
+  --radius-md:   var(--number-1-5); /* rounded-md = 6px */
+  --radius-lg:   var(--number-2); /* rounded-lg = 8px */
+  --radius-xl:   var(--number-3); /* rounded-xl = 12px */
+  --radius-2xl:  var(--number-4); /* rounded-2xl = 16px */
+  --radius-3xl:  var(--number-6); /* rounded-3xl = 24px */
+  --radius-full: 9999px; /* rounded-full = 9999px */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 2 - border width alias tokens                              */
+  /* (Figma "Border Width", 4908:8786 / token table 4908:8790)        */
+  /* Tailwind v4 has no border-width theme namespace, so these are    */
+  /* consumed through the `border-w-*` utility defined below.         */
+  /* ---------------------------------------------------------------- */
+
+  --border-width-0: var(--number-0); /* border-0 = 0px */
+  --border-width-1: var(--number-px); /* border = 1px */
+  --border-width-2: var(--number-0-5); /* border-2 = 2px */
+  --border-width-4: var(--number-1); /* border-4 = 4px */
+  --border-width-8: var(--number-2); /* border-8 = 8px */
+
+  /* ---------------------------------------------------------------- */
+  /* Layer 3 - semantic border tokens (Figma "border/*")              */
+  /* The names components reach for; each aliases an alias token.     */
+  /* ---------------------------------------------------------------- */
+
+  --radius-default:       var(--radius-base); /* border/radius/default = 4px */
+  --border-width-default: var(--border-width-1); /* border/width/default = 1px */
 }
 
 /* Layer 3 - role tokens, dark mode. Same tokens, the Dark column of the Figma tables. */
@@ -822,6 +1057,21 @@
   --color-border-danger: var(--color-danger-700);
   --color-border-ring: var(--color-blue-300);
   --color-border-disabled: var(--color-default-300);
+}
+
+/*
+ * Border width utility.
+ *
+ * Tailwind v4 has no border-width theme namespace: `border`, `border-2`, `border-4` and
+ * `border-8` are static utilities that write the px value straight into the rule, and the
+ * `border-*` name is already taken by border-colour, so the core utilities cannot be
+ * redefined without shadowing every `border-<colour>` class. `border-w-*` is therefore the
+ * way a component reads the Figma border/width tokens:
+ *
+ *   border-w-0  border-w-1  border-w-2  border-w-4  border-w-8  border-w-default
+ */
+@utility border-w-* {
+  border-width: --value(--border-width-*);
 }
 
 /* Pre-existing app shell variables, untouched by the design system. */

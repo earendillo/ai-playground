@@ -27,31 +27,32 @@ type SizeTokens = {
   iconBox: string;
 };
 
-// Figma sizes sm / md* / lg. Pixel values converted at the 16px root font size.
+// Figma sizes sm / md* / lg. Every padding and gap is a step of the Figma spacing scale and
+// every text size a step of the type scale, so the tokens carry the measurements.
 const sizeTokens: Record<AlertSize, SizeTokens> = {
   sm: {
-    padding: 'p-[0.75rem]',
-    gap: 'gap-[0.625rem]',
-    contentGap: 'gap-[0.5rem]',
-    message: 'text-[0.875rem] leading-[1.25rem]',
-    description: 'text-[0.75rem] leading-[1rem]',
-    iconBox: 'h-[1.25rem]',
+    padding: 'p-3',
+    gap: 'gap-2.5',
+    contentGap: 'gap-2',
+    message: 'text-sm',
+    description: 'text-xs',
+    iconBox: 'h-5',
   },
   md: {
-    padding: 'p-[0.875rem]',
-    gap: 'gap-[0.75rem]',
-    contentGap: 'gap-[0.625rem]',
-    message: 'text-[1rem] leading-[1.5rem]',
-    description: 'text-[0.875rem] leading-[1.25rem]',
-    iconBox: 'h-[1.5rem]',
+    padding: 'p-3.5',
+    gap: 'gap-3',
+    contentGap: 'gap-2.5',
+    message: 'text-base',
+    description: 'text-sm',
+    iconBox: 'h-6',
   },
   lg: {
-    padding: 'p-[1rem]',
-    gap: 'gap-[0.875rem]',
-    contentGap: 'gap-[0.75rem]',
-    message: 'text-[1.125rem] leading-[1.75rem]',
-    description: 'text-[1rem] leading-[1.5rem]',
-    iconBox: 'h-[1.75rem]',
+    padding: 'p-4',
+    gap: 'gap-3.5',
+    contentGap: 'gap-3',
+    message: 'text-lg',
+    description: 'text-base',
+    iconBox: 'h-7',
   },
 };
 
@@ -207,8 +208,8 @@ function paletteFor(kind: AlertKind, status: AlertStatus, invert: boolean): Pale
  */
 const kindTokens: Record<AlertKind, string> = {
   filled: '',
-  outlined: '[outline-width:1px] [outline-style:solid] [outline-offset:-1px]',
-  dashed: '[outline-width:1px] [outline-style:dashed] [outline-offset:-1px]',
+  outlined: '[outline-width:var(--border-width-default)] [outline-style:solid] [outline-offset:-1px]',
+  dashed: '[outline-width:var(--border-width-default)] [outline-style:dashed] [outline-offset:-1px]',
 };
 
 export type AlertProps = {
@@ -256,7 +257,7 @@ export function Alert({
 
   return (
     <div
-      className={`flex min-w-[16rem] items-start rounded-[0.25rem] font-[family-name:var(--font-inter)] ${tokens.padding} ${tokens.gap} ${surface} ${className ?? ''}`}
+      className={`flex min-w-64 items-start rounded-default font-default ${tokens.padding} ${tokens.gap} ${surface} ${className ?? ''}`}
       data-node-id={nodeId}
       role="alert"
     >
@@ -278,7 +279,7 @@ export function Alert({
 
         {description !== undefined ? (
           <div className="flex w-full items-start" data-name="Description">
-            <p className={`min-w-px flex-[1_0_0] font-normal ${tokens.description} ${palette.description}`}>
+            <p className={`min-w-px flex-[1_0_0] font-regular ${tokens.description} ${palette.description}`}>
               {description}
             </p>
           </div>

@@ -24,34 +24,35 @@ type SizeTokens = {
   font: string;
 };
 
-// Figma: sizes sm / md* / lg. py is space-0-5 (2px) for every size.
+// Figma: sizes sm / md* / lg. Every value is a step of the Figma spacing scale or of the
+// type scale, so the tokens carry the measurements rather than the class names.
 const sizeTokens: Record<BadgeSize, SizeTokens> = {
   sm: {
-    box: 'h-[22px] min-w-[22px]',
-    square: 'w-[22px]',
-    gap: 'gap-[4px]',
-    paddingX: 'px-[4px]',
-    icon: 'size-[12px]',
-    dot: 'size-[6px]',
-    font: 'text-[12px] leading-[16px]',
+    box: 'h-5.5 min-w-5.5',
+    square: 'w-5.5',
+    gap: 'gap-1',
+    paddingX: 'px-1',
+    icon: 'size-3',
+    dot: 'size-1.5',
+    font: 'text-xs',
   },
   md: {
-    box: 'h-[24px] min-w-[24px]',
-    square: 'w-[24px]',
-    gap: 'gap-[6px]',
-    paddingX: 'px-[6px]',
-    icon: 'size-[16px]',
-    dot: 'size-[8px]',
-    font: 'text-[14px] leading-[20px]',
+    box: 'h-6 min-w-6',
+    square: 'w-6',
+    gap: 'gap-1.5',
+    paddingX: 'px-1.5',
+    icon: 'size-4',
+    dot: 'size-2',
+    font: 'text-sm',
   },
   lg: {
-    box: 'h-[28px] min-w-[28px]',
-    square: 'w-[28px]',
-    gap: 'gap-[6px]',
-    paddingX: 'px-[6px]',
-    icon: 'size-[20px]',
-    dot: 'size-[10px]',
-    font: 'text-[16px] leading-[24px]',
+    box: 'h-7 min-w-7',
+    square: 'w-7',
+    gap: 'gap-1.5',
+    paddingX: 'px-1.5',
+    icon: 'size-5',
+    dot: 'size-2.5',
+    font: 'text-base',
   },
 };
 
@@ -87,8 +88,8 @@ const statusTokens: Record<'default' | 'invert', Record<BadgeStatus, StatusToken
 
 // Figma: border/radius/full (9999) and border/radius/default (4).
 const shapeTokens: Record<BadgeShape, string> = {
-  'full rounded': 'rounded-[9999px]',
-  rounded: 'rounded-[4px]',
+  'full rounded': 'rounded-full',
+  rounded: 'rounded-default',
 };
 
 export type BadgeProps = {
@@ -124,7 +125,7 @@ export function Badge({
   const palette = statusTokens[invert ? 'invert' : 'default'][status];
 
   // Figma: border/width/default 1px in color/border/base on every variant.
-  const base = `inline-flex items-center justify-center border border-solid border-border-base ${palette.background} ${shapeTokens[shape]}`;
+  const base = `inline-flex items-center justify-center border-w-default border-solid border-border-base ${palette.background} ${shapeTokens[shape]}`;
 
   if (kind === 'default') {
     return (
@@ -142,7 +143,7 @@ export function Badge({
   return (
     <span
       aria-label={isIconOnly ? label : undefined}
-      className={`${base} ${tokens.box} ${isIconOnly ? tokens.square : ''} ${tokens.gap} ${tokens.paddingX} py-[2px] font-[family-name:var(--font-inter)] font-normal ${tokens.font} ${palette.foreground} ${className ?? ''}`}
+      className={`${base} ${tokens.box} ${isIconOnly ? tokens.square : ''} ${tokens.gap} ${tokens.paddingX} py-0.5 font-default font-regular ${tokens.font} ${palette.foreground} ${className ?? ''}`}
       data-node-id={nodeId}
       role={isIconOnly && label ? 'img' : undefined}
     >

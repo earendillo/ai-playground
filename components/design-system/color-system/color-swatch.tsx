@@ -61,24 +61,24 @@ export function ColorSwatch({ token, label, detail, mode, nodeId, className }: C
 
   return (
     <div
-      className={`flex min-w-0 flex-col gap-[0.375rem] ${className ?? ''}`}
+      className={`flex min-w-0 flex-col gap-1.5 ${className ?? ''}`}
       data-color-mode={mode}
       data-color-token={token}
     >
       <div
         ref={ref}
-        className="h-[3.5625rem] w-full rounded-[0.25rem] border border-solid border-[rgba(255,255,255,0.1)]"
+        className="h-[3.5625rem] w-full rounded-default border-w-default border-solid border-[rgba(255,255,255,0.1)]"
         data-name={label}
         data-node-id={nodeId}
         data-theme={mode}
         style={{ backgroundColor: colorVar(token) }}
       />
-      <div className="flex min-w-0 flex-col text-[1rem] leading-[1.5rem] font-medium">
+      <div className="flex min-w-0 flex-col text-base font-medium">
         <span className="break-words text-text-default">{label}</span>
         <span className="break-words text-text-caption" data-color-value={token}>
           {value ?? '—'}
         </span>
-        {detail ? <span className="break-words text-[0.75rem] leading-[1rem] text-text-caption">{detail}</span> : null}
+        {detail ? <span className="break-words text-xs text-text-caption">{detail}</span> : null}
       </div>
     </div>
   );

@@ -21,10 +21,10 @@ export type ColorRampProps = {
 
 export function ColorRamp({ tokenPrefix, label, nodeId, note, shadeNodeIds }: ColorRampProps) {
   return (
-    <section className="flex flex-col gap-[0.375rem]" data-color-ramp={tokenPrefix} data-node-id={nodeId}>
-      <h3 className="flex items-baseline gap-[0.5rem] text-[1rem] leading-[1.5rem] font-medium text-text-default">
+    <section className="flex flex-col gap-1.5" data-color-ramp={tokenPrefix} data-node-id={nodeId}>
+      <h3 className="flex items-baseline gap-2 text-base font-medium text-text-default">
         {label}
-        {note ? <span className="text-[0.875rem] leading-[1.25rem] font-normal text-text-caption">{note}</span> : null}
+        {note ? <span className="text-sm font-regular text-text-caption">{note}</span> : null}
       </h3>
       <div className="grid grid-cols-11 gap-[0.8125rem]">
         {colorShades.map((shade) => (

@@ -40,7 +40,9 @@ type Snapshot = {
 };
 
 const snapshot: Snapshot = JSON.parse(fs.readFileSync('artifacts/figma/color-system.json', 'utf8'));
-const css = fs.readFileSync('app/globals.css', 'utf8');
+// Normalised to LF: the block slicing below looks for a `}` on its own line, and the
+// working tree can hold either ending depending on core.autocrlf.
+const css = fs.readFileSync('app/globals.css', 'utf8').replaceAll('\r\n', '\n');
 
 function declarationsIn(source: string): Map<string, string> {
   return new Map([...source.matchAll(/^\s*(--color-[a-z0-9-]+):\s*([^;]+);/gm)].map((match) => [match[1], match[2].trim()]));

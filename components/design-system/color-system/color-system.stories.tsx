@@ -32,7 +32,7 @@ export const FullSystem: Story = {};
 /** Layer 1 only - the 22 primitive ramps plus the two base values. */
 export const PrimitivePalette: Story = {
   render: () => (
-    <div className="flex flex-col gap-[3rem] bg-background-surface p-[6rem] font-[family-name:var(--font-inter)]">
+    <div className="flex flex-col gap-12 bg-background-surface p-24 font-default">
       {primitiveFamilies.map((family) => (
         <ColorRamp
           key={family.name}
@@ -49,7 +49,7 @@ export const PrimitivePalette: Story = {
 /** Layer 2 only - the six classified families, each aliasing a primitive ramp. */
 export const SemanticFamilies: Story = {
   render: () => (
-    <div className="flex flex-col gap-[3rem] bg-background-default-default p-[6rem] font-[family-name:var(--font-inter)]">
+    <div className="flex flex-col gap-12 bg-background-default-default p-24 font-default">
       {semanticFamilies.map((family) => (
         <ColorRamp
           key={family.name}
@@ -66,7 +66,7 @@ export const SemanticFamilies: Story = {
 /** Layer 3 only - the role tokens, with the interaction states and both modes. */
 export const RoleTokens: Story = {
   render: () => (
-    <div className="flex flex-col gap-[3rem] bg-background-surface p-[6rem] font-[family-name:var(--font-inter)]">
+    <div className="flex flex-col gap-12 bg-background-surface p-24 font-default">
       {roleTokenGroups.map((group) => (
         <RoleTokenTable key={group.name} group={group} />
       ))}

@@ -25,22 +25,22 @@ import {
  */
 export function ColorSystem() {
   return (
-    <div className="flex w-full flex-col font-[family-name:var(--font-inter)]">
+    <div className="flex w-full flex-col font-default">
       <section
-        className="flex flex-col gap-[4rem] bg-background-surface p-[6rem]"
+        className="flex flex-col gap-16 bg-background-surface p-24"
         data-node-id={colorSystemFigmaNodes.colorPalette}
       >
-        <header className="flex flex-col gap-[1.5rem]">
-          <h2 className="text-[1.875rem] leading-[2.25rem] font-semibold text-text-default">
+        <header className="flex flex-col gap-6">
+          <h2 className="text-3xl font-semi-bold text-text-default">
             {colorSystemCopy.paletteTitle}
           </h2>
-          <p className="text-[1.25rem] leading-[1.75rem] font-normal text-text-default">
+          <p className="text-xl font-regular text-text-default">
             {colorSystemCopy.paletteDescription}
           </p>
         </header>
 
-        <section className="flex flex-col gap-[0.375rem]" data-color-ramp="base">
-          <h3 className="text-[1rem] leading-[1.5rem] font-medium text-text-default">Base</h3>
+        <section className="flex flex-col gap-1.5" data-color-ramp="base">
+          <h3 className="text-base font-medium text-text-default">Base</h3>
           <div className="grid grid-cols-11 gap-[0.8125rem]">
             {baseTokens.map((base) => (
               <ColorSwatch
@@ -55,7 +55,7 @@ export function ColorSystem() {
           </div>
         </section>
 
-        <div className="flex flex-col gap-[3rem]">
+        <div className="flex flex-col gap-12">
           {primitiveFamilies.map((family) => (
             <ColorRamp
               key={family.name}
@@ -69,29 +69,29 @@ export function ColorSystem() {
       </section>
 
       <section
-        className="flex flex-col gap-[4rem] bg-background-default-default p-[6rem]"
+        className="flex flex-col gap-16 bg-background-default-default p-24"
         data-node-id={colorSystemFigmaNodes.colorClassification}
       >
-        <header className="flex flex-col gap-[1.5rem]">
-          <h2 className="text-[1.875rem] leading-[2.25rem] font-semibold text-text-default">
+        <header className="flex flex-col gap-6">
+          <h2 className="text-3xl font-semi-bold text-text-default">
             {colorSystemCopy.classificationTitle}
           </h2>
-          <p className="text-[1.25rem] leading-[1.75rem] font-normal text-text-default">
+          <p className="text-xl font-regular text-text-default">
             {colorSystemCopy.classificationDescription}
           </p>
         </header>
 
-        <div className="flex flex-col gap-[3rem]">
+        <div className="flex flex-col gap-12">
           {semanticFamilies.map((family) => (
             <article
               key={family.name}
-              className="flex flex-col gap-[1.5rem]"
+              className="flex flex-col gap-6"
               data-node-id={family.figmaNodeId}
               data-semantic-family={family.name}
             >
-              <div className="flex flex-col gap-[1.5rem]">
-                <h3 className="text-[1.5rem] leading-[2rem] font-medium text-text-default">{family.label}</h3>
-                <p className="text-[1.125rem] leading-[1.75rem] font-normal text-text-default">{family.description}</p>
+              <div className="flex flex-col gap-6">
+                <h3 className="text-2xl font-medium text-text-default">{family.label}</h3>
+                <p className="text-lg font-regular text-text-default">{family.description}</p>
               </div>
               <ColorRamp
                 label={`--color-${family.name}-*`}
@@ -104,24 +104,24 @@ export function ColorSystem() {
       </section>
 
       <section
-        className="flex flex-col gap-[4rem] bg-background-surface p-[6rem]"
+        className="flex flex-col gap-16 bg-background-surface p-24"
         data-node-id={colorSystemFigmaNodes.colorTokens}
       >
-        <header className="flex flex-col gap-[1.5rem]">
-          <h2 className="text-[1.875rem] leading-[2.25rem] font-semibold text-text-default">
+        <header className="flex flex-col gap-6">
+          <h2 className="text-3xl font-semi-bold text-text-default">
             {colorSystemCopy.tokensTitle}
           </h2>
-          <p className="text-[1.25rem] leading-[1.75rem] font-normal text-text-default">
+          <p className="text-xl font-regular text-text-default">
             {colorSystemCopy.tokensDescription}
           </p>
-          <p className="text-[1.125rem] leading-[1.75rem] font-normal text-text-caption">
+          <p className="text-lg font-regular text-text-caption">
             Each role resolves through a semantic family rather than holding a value of its own, and backgrounds carry
             the five interaction states Figma defines. The Dark column renders the same token inside{' '}
             <code>data-theme=&quot;dark&quot;</code>, so both columns read the theme rather than the design file.
           </p>
         </header>
 
-        <div className="flex flex-col gap-[3rem]">
+        <div className="flex flex-col gap-12">
           {roleTokenGroups.map((group) => (
             <RoleTokenTable key={group.name} group={group} />
           ))}
