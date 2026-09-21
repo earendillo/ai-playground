@@ -42,6 +42,20 @@ Do not transform values merely to match the browser representation when the comp
 
 Keep the expected data limited to measurable properties that can be compared deterministically.
 
+### Figma request budget
+
+Minimize Figma MCP requests.
+
+For each implementation task:
+
+- retrieve the required Figma data once at the beginning of the task,
+- collect all required target-node, child-node, geometry, typography, color, layout, and asset information during this initial Figma inspection,
+- save the retrieved design information as a local snapshot before implementation,
+- use the local snapshot as the source of truth for all subsequent implementation and verification iterations,
+- do not call Figma MCP again during the fix-and-verify loop unless the initial snapshot is missing information that is strictly required to complete the task.
+
+If additional Figma data is required, first check the local snapshot and existing project artifacts before making another Figma MCP request.
+
 ### 2. Inspect the project
 
 Before modifying code:
