@@ -1,16 +1,16 @@
 {
   "position": {
-    "x": 77.75,
-    "y": 243
+    "x": 40,
+    "y": 4772
   },
-  "text": "Lorem ipsum dolor sit amet, his rebum salutatus id, purto vitae signi ferumque ea per. An quod erant sed. Viris aliquam impedit et est has veri deleniti sensibus id, summo paulo cetero no vel.",
-  "width": 697.75,
-  "height": 32,
+  "text": "This is a Plus UI alert message componentLorem ipsum dolor sit amet, his rebum salutatus id, purto vitae signi ferumque ea per. An quod erant sed. Viris aliquam impedit et est has veri deleniti sensibus id, summo paulo cetero no vel.",
+  "width": 768,
+  "height": 84,
   "padding": {
-    "top": "0px",
-    "right": "0px",
-    "bottom": "0px",
-    "left": "0px"
+    "top": "12px",
+    "right": "12px",
+    "bottom": "12px",
+    "left": "12px"
   },
   "margin": {
     "top": "0px",
@@ -20,12 +20,12 @@
   },
   "font": {
     "family": "Inter, \"Inter Fallback\"",
-    "size": "12px",
+    "size": "16px",
     "weight": "400",
-    "lineHeight": "16px",
+    "lineHeight": "24px",
     "letterSpacing": "normal"
   },
-  "color": "rgb(3, 7, 18)",
+  "color": "rgb(23, 23, 23)",
   "backgroundColor": "rgba(0, 0, 0, 0)",
-  "borderRadius": "0px"
+  "borderRadius": "4px"
 }

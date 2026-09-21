@@ -61,7 +61,7 @@ export const Playground: Story = {};
 export const AllVariants: Story = {
   parameters: { layout: 'padded', controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-10 bg-[#ffffff] p-6">
+    <div className="flex flex-col gap-10 bg-background-surface p-6" data-theme="light">
       {kinds.flatMap((kind) =>
         badgeShapesFor(kind).map((shape) => <BadgeVariantGrid key={`${kind}-${shape}`} kind={kind} shape={shape} />),
       )}

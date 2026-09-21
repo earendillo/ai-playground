@@ -21,15 +21,15 @@ export const alertSampleDescription =
 export function AlertVariantGrid({ kind }: { kind: AlertKind }) {
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-[14px] font-medium text-[#030712]">Kind={kind}</h2>
+      <h2 className="text-[14px] font-medium text-text-default">Kind={kind}</h2>
       {alertInvertsFor(kind).map((invert) => (
         <Fragment key={String(invert)}>
-          <span className="text-[12px] font-medium text-[#030712]">Invert={String(invert)}</span>
+          <span className="text-[12px] font-medium text-text-default">Invert={String(invert)}</span>
           {alertStatuses.map((status) => (
             <Fragment key={status}>
               {alertSizes.map((size) => (
                 <div key={size} className="flex flex-col gap-1">
-                  <span className="text-[12px] text-[#6b7280]">
+                  <span className="text-[12px] text-text-placeholder">
                     {status} · {size}
                   </span>
                   <Alert

@@ -16,24 +16,24 @@ export const badgeShapes: BadgeShape[] = ['full rounded', 'rounded'];
 export function BadgeVariantGrid({ kind, shape }: { kind: BadgeKind; shape: BadgeShape }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-[14px] font-medium text-[#030712]">
+      <h2 className="text-[14px] font-medium text-text-default">
         Kind={kind} · Shape={shape}
       </h2>
       <div className="grid grid-cols-[5rem_repeat(5,max-content)] items-center justify-items-center gap-x-4 gap-y-3">
         <span />
         {badgeStatuses.map((status) => (
-          <span key={status} className="text-[12px] text-[#6b7280]">
+          <span key={status} className="text-[12px] text-text-placeholder">
             {status}
           </span>
         ))}
         {[false, true].map((invert) => (
           <Fragment key={String(invert)}>
-            <span className="col-span-6 justify-self-start pt-2 text-[12px] font-medium text-[#030712]">
+            <span className="col-span-6 justify-self-start pt-2 text-[12px] font-medium text-text-default">
               Invert={String(invert)}
             </span>
             {badgeSizes.map((size) => (
               <Fragment key={size}>
-                <span className="justify-self-start text-[12px] text-[#6b7280]">{size}</span>
+                <span className="justify-self-start text-[12px] text-text-placeholder">{size}</span>
                 {badgeStatuses.map((status, index) => (
                   <Badge
                     key={status}

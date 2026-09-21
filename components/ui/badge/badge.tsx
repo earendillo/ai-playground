@@ -57,22 +57,31 @@ const sizeTokens: Record<BadgeSize, SizeTokens> = {
 
 type StatusTokens = { background: string; foreground: string };
 
-// Figma variables: color/background/<status>/default and their /invert/ counterparts,
-// paired with color/text/default (#030712) or color/text/base (#ffffff).
+/**
+ * Figma variables per Status x Invert, from the Color Tokens page (`4922:6167`):
+ * `color/background/<status>/default` and its `/invert/` counterpart, paired with
+ * `color/text/default` or `color/text/base`.
+ *
+ * One exception: the Figma badge fills Status=info, Invert=true with indigo/100, which is
+ * `color/background/primary/invert/default`, not the blue/100 the token page defines for
+ * `color/background/info/invert/default`. The semantic shade is used here so the value stays
+ * in the token system and the rendered colour stays what the design file specifies; switching
+ * it to the info role would change the colour, so that is a design-file decision.
+ */
 const statusTokens: Record<'default' | 'invert', Record<BadgeStatus, StatusTokens>> = {
   default: {
-    default: { background: 'bg-[#f3f4f6]', foreground: 'text-[#030712]' },
-    info: { background: 'bg-[#1d4ed8]', foreground: 'text-[#ffffff]' },
-    success: { background: 'bg-[#15803d]', foreground: 'text-[#ffffff]' },
-    warning: { background: 'bg-[#a16207]', foreground: 'text-[#ffffff]' },
-    danger: { background: 'bg-[#b91c1c]', foreground: 'text-[#ffffff]' },
+    default: { background: 'bg-background-default-default', foreground: 'text-text-default' },
+    info: { background: 'bg-background-info-default', foreground: 'text-text-base' },
+    success: { background: 'bg-background-success-default', foreground: 'text-text-base' },
+    warning: { background: 'bg-background-warning-default', foreground: 'text-text-base' },
+    danger: { background: 'bg-background-danger-default', foreground: 'text-text-base' },
   },
   invert: {
-    default: { background: 'bg-[#374151]', foreground: 'text-[#ffffff]' },
-    info: { background: 'bg-[#e0e7ff]', foreground: 'text-[#030712]' },
-    success: { background: 'bg-[#dcfce7]', foreground: 'text-[#030712]' },
-    warning: { background: 'bg-[#fef9c3]', foreground: 'text-[#030712]' },
-    danger: { background: 'bg-[#fee2e2]', foreground: 'text-[#030712]' },
+    default: { background: 'bg-background-default-invert-default', foreground: 'text-text-base' },
+    info: { background: 'bg-primary-100', foreground: 'text-text-default' },
+    success: { background: 'bg-background-success-invert-default', foreground: 'text-text-default' },
+    warning: { background: 'bg-background-warning-invert-default', foreground: 'text-text-default' },
+    danger: { background: 'bg-background-danger-invert-default', foreground: 'text-text-default' },
   },
 };
 
@@ -114,8 +123,8 @@ export function Badge({
   const tokens = sizeTokens[size];
   const palette = statusTokens[invert ? 'invert' : 'default'][status];
 
-  // Figma: border/width/default 1px in color/border/base (#ffffff) on every variant.
-  const base = `inline-flex items-center justify-center border border-solid border-[#ffffff] ${palette.background} ${shapeTokens[shape]}`;
+  // Figma: border/width/default 1px in color/border/base on every variant.
+  const base = `inline-flex items-center justify-center border border-solid border-border-base ${palette.background} ${shapeTokens[shape]}`;
 
   if (kind === 'default') {
     return (

@@ -124,7 +124,7 @@ export const Slots: Story = {
 export const AllVariants: Story = {
   parameters: { controls: { disable: true } },
   render: () => (
-    <div className="flex flex-col gap-10 bg-[#ffffff] p-6">
+    <div className="flex flex-col gap-10 bg-background-surface p-6" data-theme="light">
       {kinds.map((kind) => (
         <AlertVariantGrid key={kind} kind={kind} />
       ))}
